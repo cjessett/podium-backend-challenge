@@ -1,5 +1,12 @@
 # Backend Coding Assessment
 
+This script scrapes the first 5 pages of **positive** reviews of McKaig Chevrolet Buick found on DealerRater.com and displays the top 3 "overly positive" results.
+
+Criteria for determining the top 3 "overly postive" reviews:
+ - Uses the `ONLY POSITIVE` filter available on the site
+ - Review rating (higher -> more positive)
+ - Length of the review (longer -> more positive)
+
 ### Install dependencies
 
 ```

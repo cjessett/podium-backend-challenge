@@ -29,4 +29,5 @@ for page in 1..LAST_PAGE do
   end
 end
 
-puts reviews
+sorted_reviews = reviews.sort_by { |r| [r[:rating], r[:body].length] }
+puts sorted_reviews.last(3).reverse
