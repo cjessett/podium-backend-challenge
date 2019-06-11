@@ -1,5 +1,6 @@
 require 'nokogiri'
 require 'open-uri'
+require_relative 'lib/review'
 
 BASE_URL = "https://www.dealerrater.com/dealer"
 MCKAIG_PATH = "McKaig-Chevrolet-Buick-A-Dealer-For-The-People-dealer-reviews-23685"
@@ -25,9 +26,16 @@ for page in 1..LAST_PAGE do
     author = review.css("span.italic.font-18.black.notranslate").text.gsub("- ", "")
     title  = review.css("h3.no-format.inline.italic-bolder.font-20.dark-grey").text.gsub("\"", "")
     body   = review.css("p.review-content").text
-    reviews << { rating: rating, author: author, title: title, body: body }
+    
+    params = { rating: rating, author: author, title: title, body: body }
+    reviews << Review.new(params)
   end
 end
 
-sorted_reviews = reviews.sort_by { |r| [r[:rating], r[:body].length] }
-puts sorted_reviews.last(3).reverse
+sorted_reviews = reviews.sort_by { |r| [r.rating, r.length] }
+
+puts "\n\nTop 3 Overly Positive Endorsements of McKaig Chevrolet Buick\n\n"
+
+sorted_reviews.last(3).reverse.each_with_index do |review, idx|
+  puts "#{idx + 1}. #{review}"
+end
