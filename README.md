@@ -1,5 +1,24 @@
 # Backend Coding Assessment
 
+### Install dependencies
+
+```
+bundle install
+```
+
+### Run the thing
+
+```
+ruby scrape_reviews.rb
+```
+
+#### Run tests
+```
+rake
+```
+
+## Requirements
+
 We really look for three things when it comes to the coding challenge: 
 
 - 1 You follow good engineering practices
