@@ -13,7 +13,7 @@ Criteria for determining the top 3 "overly postive" reviews:
 bundle install
 ```
 
-### Run the thing
+### Display the top 3 overly positive reviews
 
 ```
 ruby scrape_reviews.rb
